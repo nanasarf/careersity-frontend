@@ -1,0 +1,512 @@
+{
+  "category": {
+    "name": "Data & Analytics",
+    "slug": "data-analytics",
+    "description": "Careers focused on turning data into trustworthy evidence, decisions, reports, and analytical products."
+  },
+  "career": {
+    "title": "Data Analyst",
+    "slug": "data-analyst",
+    "shortDescription": "Turn raw organizational data into validated analyses, visualizations, dashboards, and recommendations for decision-makers.",
+    "estimatedDurationWeeks": 52
+  },
+  "skills": [
+    { "name": "Analytical Thinking", "slug": "analytical-thinking", "category": "Analytical", "description": "Frame questions, evaluate evidence, identify assumptions, and choose proportionate analytical approaches." },
+    { "name": "Data Literacy", "slug": "data-literacy", "category": "Analytical", "description": "Interpret data types, structures, measures, populations, samples, and common analytical claims." },
+    { "name": "Business Analysis", "slug": "business-analysis", "category": "DomainKnowledge", "description": "Translate organizational decisions and processes into analytical requirements and recommendations." },
+    { "name": "Excel", "slug": "excel", "category": "Tool", "description": "Analyze, validate, summarize, and present structured data in Microsoft Excel." },
+    { "name": "SQL", "slug": "sql", "category": "Technical", "description": "Query and transform relational data for analysis." },
+    { "name": "Relational Databases", "slug": "relational-databases", "category": "Technical", "description": "Reason about schemas, tables, keys, relationships, grain, and normalized data." },
+    { "name": "Descriptive Statistics", "slug": "descriptive-statistics", "category": "Analytical", "description": "Summarize distributions, center, spread, rates, and relationships accurately." },
+    { "name": "Probability", "slug": "probability", "category": "Analytical", "description": "Reason about chance, conditional events, independence, and sampling variability." },
+    { "name": "Inferential Statistics", "slug": "inferential-statistics", "category": "Analytical", "description": "Estimate uncertainty and evaluate claims using samples." },
+    { "name": "Regression", "slug": "regression", "category": "Analytical", "description": "Model and interpret relationships while checking assumptions and avoiding unsupported causal claims." },
+    { "name": "Experimentation", "slug": "experimentation", "category": "Analytical", "description": "Design and analyze controlled experiments and A/B tests." },
+    { "name": "Data Cleaning", "slug": "data-cleaning", "category": "Technical", "description": "Diagnose and correct missing, invalid, duplicated, inconsistent, and malformed data." },
+    { "name": "Data Wrangling", "slug": "data-wrangling", "category": "Technical", "description": "Join, reshape, standardize, and prepare analysis-ready datasets." },
+    { "name": "Data Quality", "slug": "data-quality", "category": "Professional", "description": "Assess fitness for use and validate analytical inputs, transformations, and outputs." },
+    { "name": "Data Ethics", "slug": "data-ethics", "category": "Professional", "description": "Recognize bias, misuse, conflicts, and responsibilities in analytical work." },
+    { "name": "Data Privacy", "slug": "data-privacy", "category": "Professional", "description": "Handle personal and sensitive data using risk-aware lifecycle practices." },
+    { "name": "Python", "slug": "python", "category": "Technical", "description": "Use Python to perform reproducible analytical work." },
+    { "name": "pandas", "slug": "pandas", "category": "Tool", "description": "Load, clean, combine, reshape, summarize, and export tabular data with pandas." },
+    { "name": "NumPy", "slug": "numpy", "category": "Tool", "description": "Use arrays and vectorized numerical operations in analytical workflows." },
+    { "name": "Exploratory Data Analysis", "slug": "exploratory-data-analysis", "category": "Analytical", "description": "Systematically investigate distributions, relationships, segments, trends, and anomalies." },
+    { "name": "Data Visualization", "slug": "data-visualization", "category": "Communication", "description": "Encode and present quantitative information clearly, honestly, and accessibly." },
+    { "name": "Power BI", "slug": "power-bi", "category": "Tool", "description": "Prepare, model, analyze, visualize, publish, and secure data in Power BI." },
+    { "name": "Dashboards", "slug": "dashboards", "category": "Technical", "description": "Design interactive, decision-oriented analytical reports and KPI experiences." },
+    { "name": "Metrics and KPIs", "slug": "metrics-kpis", "category": "DomainKnowledge", "description": "Define and analyze decision-relevant measures, targets, guardrails, funnels, and cohorts." },
+    { "name": "Analytical Communication", "slug": "analytical-communication", "category": "Communication", "description": "Explain evidence, implications, uncertainty, limitations, and recommendations for an audience." },
+    { "name": "Git and GitHub", "slug": "git-github", "category": "Tool", "description": "Version, document, and publish reproducible analytical work." },
+    { "name": "Forecasting", "slug": "forecasting", "category": "Analytical", "description": "Build, validate, and communicate practical time-series forecasts." },
+    { "name": "Portfolio Development", "slug": "portfolio-development", "category": "Professional", "description": "Present credible, well-documented evidence of analytical ability." },
+    { "name": "Interview Preparation", "slug": "interview-preparation", "category": "Professional", "description": "Demonstrate analytical judgment and technical competence in hiring processes." }
+  ],
+  "providers": [],
+  "courses": [
+    {
+      "title": "DA 101 — Data Analytics and Analytical Thinking",
+      "slug": "da-101-data-analytics-analytical-thinking",
+      "difficulty": "Foundation",
+      "estimatedDurationMinutes": 1080,
+      "shortDescription": "Frame decision-oriented questions and learn the professional Data Analyst workflow.",
+      "skills": [
+        { "skillSlug": "analytical-thinking", "proficiencyLevel": "Beginner", "isPrimary": true },
+        { "skillSlug": "data-literacy", "proficiencyLevel": "Beginner", "isPrimary": false },
+        { "skillSlug": "business-analysis", "proficiencyLevel": "Awareness", "isPrimary": false },
+        { "skillSlug": "analytical-communication", "proficiencyLevel": "Awareness", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "The Data Analyst Role", "slug": "data-analyst-role", "contentType": "Mixed", "estimatedDurationMinutes": 120, "order": 0, "isRequired": true, "summary": "Distinguish Data Analyst responsibilities from data science, engineering, and software development." },
+        { "title": "Questions, Decisions, and Stakeholders", "slug": "questions-decisions-stakeholders", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 1, "isRequired": true, "summary": "Translate ambiguous requests into stakeholders, decisions, answerable questions, scope, and success criteria." },
+        { "title": "Data Structures, Types, and Grain", "slug": "data-structures-types-grain", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 2, "isRequired": true, "summary": "Identify observations, variables, data types, tables, units, and levels of granularity." },
+        { "title": "Metrics, Dimensions, and Baselines", "slug": "metrics-dimensions-baselines", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 3, "isRequired": true, "summary": "Distinguish metrics, dimensions, targets, KPIs, comparison periods, and baselines." },
+        { "title": "The Analysis Lifecycle", "slug": "analysis-lifecycle", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 4, "isRequired": true, "summary": "Plan the path from question and data acquisition through validation, analysis, communication, and action." },
+        { "title": "Reasoning Traps and Causal Caution", "slug": "reasoning-traps-causal-caution", "contentType": "Mixed", "estimatedDurationMinutes": 120, "order": 5, "isRequired": true, "summary": "Recognize selection effects, confounding, denominator errors, correlation-versus-causation, and overgeneralization." },
+        { "title": "Project Brief: Analysis Plan", "slug": "project-analysis-plan", "contentType": "Exercise", "estimatedDurationMinutes": 120, "order": 6, "isRequired": true, "summary": "Turn an ambiguous business request into a one-page plan defining the decision, questions, population, measures, data needs, risks, and deliverable." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 102 — Spreadsheet Analysis with Excel",
+      "slug": "da-102-spreadsheet-analysis-excel",
+      "difficulty": "Beginner",
+      "estimatedDurationMinutes": 1800,
+      "shortDescription": "Use Excel to clean, calculate, validate, summarize, visualize, and audit business data.",
+      "skills": [
+        { "skillSlug": "excel", "proficiencyLevel": "Intermediate", "isPrimary": true },
+        { "skillSlug": "data-cleaning", "proficiencyLevel": "Beginner", "isPrimary": false },
+        { "skillSlug": "data-visualization", "proficiencyLevel": "Beginner", "isPrimary": false },
+        { "skillSlug": "data-quality", "proficiencyLevel": "Beginner", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Clean Tables and Spreadsheet Fundamentals", "slug": "clean-tables-spreadsheet-fundamentals", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 0, "isRequired": true, "summary": "Build rectangular tables with reliable field names, types, references, sorting, filtering, and named ranges." },
+        { "title": "Formulas and Conditional Logic", "slug": "formulas-conditional-logic", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 1, "isRequired": true, "summary": "Apply relative, absolute, and mixed references plus logical, conditional, arithmetic, and error-handling functions." },
+        { "title": "Text, Dates, and Lookups", "slug": "text-dates-lookups", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 2, "isRequired": true, "summary": "Transform text and dates and combine tables with modern lookup functions while checking unmatched keys." },
+        { "title": "Validation and Spreadsheet Auditing", "slug": "validation-spreadsheet-auditing", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 3, "isRequired": true, "summary": "Detect blanks, duplicates, invalid values, formula inconsistencies, hidden assumptions, and fragile workbook design." },
+        { "title": "Pivot Tables and Business Summaries", "slug": "pivot-tables-business-summaries", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 4, "isRequired": true, "summary": "Create grouped summaries, pivot tables, calculated values, filters, and compact management views." },
+        { "title": "Charts and Power Query Introduction", "slug": "charts-power-query-introduction", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 5, "isRequired": true, "summary": "Build readable charts and import, type, standardize, and refresh data with foundational Power Query transformations." },
+        { "title": "Project Brief: Audited Sales Workbook", "slug": "project-audited-sales-workbook", "contentType": "Exercise", "estimatedDurationMinutes": 240, "order": 6, "isRequired": true, "summary": "Clean a messy workbook and deliver verified calculations, pivot summaries, charts, metric definitions, and a concise findings memo." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 103 — Statistics and Probability Foundations",
+      "slug": "da-103-statistics-probability-foundations",
+      "difficulty": "Beginner",
+      "estimatedDurationMinutes": 1680,
+      "shortDescription": "Summarize variation and reason about probability and samples using practical analyst mathematics.",
+      "skills": [
+        { "skillSlug": "descriptive-statistics", "proficiencyLevel": "Intermediate", "isPrimary": true },
+        { "skillSlug": "probability", "proficiencyLevel": "Beginner", "isPrimary": false },
+        { "skillSlug": "data-literacy", "proficiencyLevel": "Intermediate", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Measurement, Counts, Rates, and Change", "slug": "measurement-counts-rates-change", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 0, "isRequired": true, "summary": "Work with units, variable types, proportions, rates, percentage change, weighted averages, and denominators." },
+        { "title": "Center, Spread, and Distribution Shape", "slug": "center-spread-distribution-shape", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 1, "isRequired": true, "summary": "Calculate and interpret mean, median, quartiles, variance, standard deviation, skew, and outliers." },
+        { "title": "Percentiles and Standardized Values", "slug": "percentiles-standardized-values", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 2, "isRequired": true, "summary": "Compare observations with percentiles, interquartile ranges, and standardized scores." },
+        { "title": "Probability Fundamentals", "slug": "probability-fundamentals", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 3, "isRequired": true, "summary": "Calculate complements, combined events, conditional probability, and independence using business examples." },
+        { "title": "Populations, Samples, and Variability", "slug": "populations-samples-variability", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 4, "isRequired": true, "summary": "Distinguish populations, samples, parameters, statistics, sampling bias, and sampling variability." },
+        { "title": "Covariance, Correlation, and Interpretation", "slug": "covariance-correlation-interpretation", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 5, "isRequired": true, "summary": "Interpret direction and strength of relationships without treating correlation as causation." },
+        { "title": "Integrated Statistical Exercise Set", "slug": "integrated-statistical-exercises", "contentType": "Exercise", "estimatedDurationMinutes": 180, "order": 6, "isRequired": true, "summary": "Compute, select, and explain appropriate descriptive and probability results for one progressively analyzed dataset." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 104 — Data Quality, Ethics, and Privacy",
+      "slug": "da-104-data-quality-ethics-privacy",
+      "difficulty": "Beginner",
+      "estimatedDurationMinutes": 1080,
+      "shortDescription": "Evaluate fitness for use and handle data with transparent, ethical, and privacy-aware practices.",
+      "skills": [
+        { "skillSlug": "data-ethics", "proficiencyLevel": "Intermediate", "isPrimary": true },
+        { "skillSlug": "data-quality", "proficiencyLevel": "Intermediate", "isPrimary": false },
+        { "skillSlug": "data-privacy", "proficiencyLevel": "Intermediate", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Fitness for Use and Quality Dimensions", "slug": "fitness-use-quality-dimensions", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 0, "isRequired": true, "summary": "Evaluate completeness, validity, consistency, uniqueness, accuracy, timeliness, and relevance." },
+        { "title": "Provenance, Lineage, Metadata, and Ownership", "slug": "provenance-lineage-metadata-ownership", "contentType": "Mixed", "estimatedDurationMinutes": 150, "order": 1, "isRequired": true, "summary": "Trace where data came from, how it changed, who owns it, and whether it supports the intended use." },
+        { "title": "Privacy Across the Data Lifecycle", "slug": "privacy-data-lifecycle", "contentType": "Mixed", "estimatedDurationMinutes": 210, "order": 2, "isRequired": true, "summary": "Identify personal and sensitive data and apply minimization, access, masking, retention, and safe-sharing principles." },
+        { "title": "Bias and Ethical Statistical Practice", "slug": "bias-ethical-statistical-practice", "contentType": "Mixed", "estimatedDurationMinutes": 210, "order": 3, "isRequired": true, "summary": "Recognize sampling, measurement, historical, algorithmic, analytical, and presentation bias." },
+        { "title": "Transparent Documentation and Responsible AI", "slug": "transparent-documentation-responsible-ai", "contentType": "Mixed", "estimatedDurationMinutes": 150, "order": 4, "isRequired": true, "summary": "Document sources, transformations, exclusions, limitations, and human verification of AI-assisted work." },
+        { "title": "Project Brief: Data Risk Audit", "slug": "project-data-risk-audit", "contentType": "Exercise", "estimatedDurationMinutes": 180, "order": 5, "isRequired": true, "summary": "Audit a flawed dataset and proposed use, then specify corrections, prohibited uses, safeguards, and disclosures." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 201 — SQL and Relational Data Analysis",
+      "slug": "da-201-sql-relational-data-analysis",
+      "difficulty": "Intermediate",
+      "estimatedDurationMinutes": 2520,
+      "shortDescription": "Query, combine, aggregate, validate, and explain relational business data with SQL.",
+      "skills": [
+        { "skillSlug": "sql", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "relational-databases", "proficiencyLevel": "Intermediate", "isPrimary": false },
+        { "skillSlug": "data-quality", "proficiencyLevel": "Intermediate", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Schemas, Tables, Keys, and Grain", "slug": "schemas-tables-keys-grain", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 0, "isRequired": true, "summary": "Reason about normalized schemas, primary and foreign keys, cardinality, and table grain." },
+        { "title": "Selecting, Filtering, Sorting, and Calculating", "slug": "select-filter-sort-calculate", "contentType": "Mixed", "estimatedDurationMinutes": 360, "order": 1, "isRequired": true, "summary": "Use SELECT, aliases, WHERE, ORDER BY, LIMIT, expressions, null handling, CASE, and common functions." },
+        { "title": "Aggregation and Grouped Analysis", "slug": "aggregation-grouped-analysis", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 2, "isRequired": true, "summary": "Build defensible grouped summaries using aggregate functions, GROUP BY, HAVING, and correct denominators." },
+        { "title": "Joins and Relationship Validation", "slug": "joins-relationship-validation", "contentType": "Mixed", "estimatedDurationMinutes": 420, "order": 3, "isRequired": true, "summary": "Write inner, left, and self joins and detect unmatched keys, duplication, and grain mismatches." },
+        { "title": "Subqueries and Common Table Expressions", "slug": "subqueries-common-table-expressions", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 4, "isRequired": true, "summary": "Decompose multi-step analytical logic into readable subqueries and CTEs." },
+        { "title": "Window Functions", "slug": "window-functions", "contentType": "Mixed", "estimatedDurationMinutes": 360, "order": 5, "isRequired": true, "summary": "Calculate ranks, running totals, moving comparisons, shares, and prior-period values without collapsing rows." },
+        { "title": "Query Testing, Debugging, and Reuse", "slug": "query-testing-debugging-reuse", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 6, "isRequired": true, "summary": "Validate row counts and control totals, inspect edge cases, explain assumptions, and organize reusable queries." },
+        { "title": "Project Brief: Relational Business Investigation", "slug": "project-relational-business-investigation", "contentType": "Exercise", "estimatedDurationMinutes": 300, "order": 7, "isRequired": true, "summary": "Analyze a normalized database and submit SQL scripts, validation evidence, a data dictionary, and findings memo." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 202 — Data Cleaning and Wrangling",
+      "slug": "da-202-data-cleaning-wrangling",
+      "difficulty": "Intermediate",
+      "estimatedDurationMinutes": 1800,
+      "shortDescription": "Convert raw, inconsistent sources into validated analysis-ready data with a documented process.",
+      "skills": [
+        { "skillSlug": "data-cleaning", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "data-wrangling", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "data-quality", "proficiencyLevel": "Advanced", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Profiling Raw Data", "slug": "profiling-raw-data", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 0, "isRequired": true, "summary": "Inspect structure, types, domains, ranges, keys, distributions, and anomalies before changing data." },
+        { "title": "Missing, Invalid, and Inconsistent Values", "slug": "missing-invalid-inconsistent-values", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 1, "isRequired": true, "summary": "Diagnose missingness and standardize categories, text, dates, units, and invalid values defensibly." },
+        { "title": "Duplicates, Entities, and Repeated Events", "slug": "duplicates-entities-repeated-events", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 2, "isRequired": true, "summary": "Resolve duplicate records without deleting legitimate repeated transactions or events." },
+        { "title": "Combining and Reconciling Sources", "slug": "combining-reconciling-sources", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 3, "isRequired": true, "summary": "Join and append sources while preserving grain, checking keys, and reconciling row counts and totals." },
+        { "title": "Reshaping and Outlier Investigation", "slug": "reshaping-outlier-investigation", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 4, "isRequired": true, "summary": "Pivot between wide and long structures and distinguish surprising valid observations from errors." },
+        { "title": "Validation Rules and Cleaning Logs", "slug": "validation-rules-cleaning-logs", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 5, "isRequired": true, "summary": "Build repeatable assertions, quality measures, exception reports, and a transparent transformation log." },
+        { "title": "Project Brief: Analysis-Ready Dataset", "slug": "project-analysis-ready-dataset", "contentType": "Exercise", "estimatedDurationMinutes": 300, "order": 6, "isRequired": true, "summary": "Integrate inconsistent source files and deliver clean data, before-and-after quality measures, and a reproducible cleaning log." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 203 — Python for Data Analysis",
+      "slug": "da-203-python-data-analysis",
+      "difficulty": "Intermediate",
+      "estimatedDurationMinutes": 2640,
+      "shortDescription": "Use Python, NumPy, pandas, notebooks, and GitHub for reproducible tabular analysis.",
+      "skills": [
+        { "skillSlug": "python", "proficiencyLevel": "Intermediate", "isPrimary": true },
+        { "skillSlug": "pandas", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "numpy", "proficiencyLevel": "Intermediate", "isPrimary": false },
+        { "skillSlug": "data-wrangling", "proficiencyLevel": "Intermediate", "isPrimary": false },
+        { "skillSlug": "git-github", "proficiencyLevel": "Beginner", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Python and Notebook Workflow", "slug": "python-notebook-workflow", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 0, "isRequired": true, "summary": "Use notebooks and scripts with values, types, collections, conditionals, loops, imports, and readable execution order." },
+        { "title": "Functions, Errors, and Validation", "slug": "functions-errors-validation", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 1, "isRequired": true, "summary": "Create reusable transformations, handle common exceptions, debug failures, and assert expected results." },
+        { "title": "NumPy and Vectorized Analysis", "slug": "numpy-vectorized-analysis", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 2, "isRequired": true, "summary": "Create arrays, select values, calculate summaries, and replace slow element-by-element operations with vectorization." },
+        { "title": "pandas DataFrames and Data Input", "slug": "pandas-dataframes-input", "contentType": "Mixed", "estimatedDurationMinutes": 360, "order": 3, "isRequired": true, "summary": "Load common formats and select, filter, sort, type, index, and export DataFrames." },
+        { "title": "Grouping, Aggregation, and Reshaping", "slug": "pandas-grouping-reshaping", "contentType": "Mixed", "estimatedDurationMinutes": 360, "order": 4, "isRequired": true, "summary": "Group, aggregate, merge, concatenate, pivot, melt, and validate tabular data." },
+        { "title": "Cleaning Dates, Text, Categories, and Missing Data", "slug": "pandas-cleaning-types", "contentType": "Mixed", "estimatedDurationMinutes": 360, "order": 5, "isRequired": true, "summary": "Build repeatable pandas transformations for common messy-data conditions." },
+        { "title": "Reproducible Repositories with Git and GitHub", "slug": "reproducible-git-github", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 6, "isRequired": true, "summary": "Organize files, environments, commits, README documentation, outputs, and data exclusions for reviewable work." },
+        { "title": "Project Brief: Reproducible Analysis Notebook", "slug": "project-reproducible-analysis-notebook", "contentType": "Exercise", "estimatedDurationMinutes": 480, "order": 7, "isRequired": true, "summary": "Import, clean, validate, analyze, and export a dataset in a documented notebook repository." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 204 — Exploratory Analysis and Data Visualization",
+      "slug": "da-204-exploratory-analysis-visualization",
+      "difficulty": "Intermediate",
+      "estimatedDurationMinutes": 1920,
+      "shortDescription": "Explore patterns systematically and create clear, honest, accessible explanatory visualizations.",
+      "skills": [
+        { "skillSlug": "exploratory-data-analysis", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "data-visualization", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "python", "proficiencyLevel": "Intermediate", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "A Structured EDA Workflow", "slug": "structured-eda-workflow", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 0, "isRequired": true, "summary": "Move from data audit and hypotheses through univariate, bivariate, multivariate, and segmented exploration." },
+        { "title": "Distributions, Groups, and Relationships", "slug": "distributions-groups-relationships", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 1, "isRequired": true, "summary": "Investigate center, spread, shape, category differences, association, nonlinearity, and confounding candidates." },
+        { "title": "Time, Missingness, and Anomalies", "slug": "time-missingness-anomalies", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 2, "isRequired": true, "summary": "Explore trends, seasonality, gaps, changing coverage, missingness patterns, and unusual observations." },
+        { "title": "Chart Selection and Visual Perception", "slug": "chart-selection-visual-perception", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 3, "isRequired": true, "summary": "Choose encodings based on purpose and apply perceptual hierarchy, comparison, and cognitive-load principles." },
+        { "title": "Truthful and Accessible Visualization", "slug": "truthful-accessible-visualization", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 4, "isRequired": true, "summary": "Use scales, baselines, denominators, color, labeling, annotation, and accessibility without misleading the audience." },
+        { "title": "Exploratory versus Explanatory Graphics", "slug": "exploratory-explanatory-graphics", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 5, "isRequired": true, "summary": "Select evidence from broad exploration and revise it into focused stakeholder-facing graphics." },
+        { "title": "Project Brief: Five-Chart Visual Analysis", "slug": "project-five-chart-visual-analysis", "contentType": "Exercise", "estimatedDurationMinutes": 300, "order": 6, "isRequired": true, "summary": "Deliver an EDA notebook and five-chart explanatory report with findings, limitations, and unresolved questions." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 205 — Business Intelligence and Dashboard Design",
+      "slug": "da-205-business-intelligence-dashboard-design",
+      "difficulty": "Intermediate",
+      "estimatedDurationMinutes": 2280,
+      "shortDescription": "Prepare, model, analyze, visualize, publish, and validate decision-oriented Power BI reports.",
+      "skills": [
+        { "skillSlug": "power-bi", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "dashboards", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "data-visualization", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "relational-databases", "proficiencyLevel": "Intermediate", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "BI Architecture and Data Connections", "slug": "bi-architecture-data-connections", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 0, "isRequired": true, "summary": "Connect to files, databases, and semantic models and distinguish import, live, refresh, and ownership concerns." },
+        { "title": "Power Query Preparation", "slug": "power-query-preparation", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 1, "isRequired": true, "summary": "Profile, type, filter, combine, reshape, parameterize, and validate source data." },
+        { "title": "Facts, Dimensions, and Star Schemas", "slug": "facts-dimensions-star-schemas", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 2, "isRequired": true, "summary": "Declare grain and build date tables, dimensions, facts, relationships, and filter paths." },
+        { "title": "Measures, DAX, and Time Intelligence", "slug": "measures-dax-time-intelligence", "contentType": "Mixed", "estimatedDurationMinutes": 360, "order": 3, "isRequired": true, "summary": "Distinguish measures from calculated columns and implement aggregations, CALCULATE, ratios, and period comparisons." },
+        { "title": "Interactive Report and KPI Design", "slug": "interactive-report-kpi-design", "contentType": "Mixed", "estimatedDurationMinutes": 360, "order": 4, "isRequired": true, "summary": "Build decision-focused pages with targets, context, filters, drill-through, tooltips, navigation, and mobile layout." },
+        { "title": "Accessibility, Performance, Publishing, and Security", "slug": "accessibility-performance-publishing-security", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 5, "isRequired": true, "summary": "Test usability and performance and apply workspace, refresh, permissions, sensitivity, and row-level-security concepts." },
+        { "title": "Tableau Concepts Comparison Lab", "slug": "tableau-concepts-comparison", "contentType": "Exercise", "estimatedDurationMinutes": 180, "order": 6, "isRequired": true, "summary": "Recreate a small analytical view in Tableau and map connections, fields, calculations, sheets, filters, and dashboards across tools." },
+        { "title": "Project Brief: Operational BI Dashboard", "slug": "project-operational-bi-dashboard", "contentType": "Exercise", "estimatedDurationMinutes": 240, "order": 7, "isRequired": true, "summary": "Build and present an interactive dashboard with a documented model, metric definitions, validation evidence, and executive summary." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 301 — Applied Statistical Inference",
+      "slug": "da-301-applied-statistical-inference",
+      "difficulty": "Advanced",
+      "estimatedDurationMinutes": 2280,
+      "shortDescription": "Estimate uncertainty and evaluate sample-based claims with appropriately qualified conclusions.",
+      "skills": [
+        { "skillSlug": "inferential-statistics", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "probability", "proficiencyLevel": "Intermediate", "isPrimary": false },
+        { "skillSlug": "analytical-communication", "proficiencyLevel": "Intermediate", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Sampling Designs, Bias, and Generalization", "slug": "sampling-designs-bias-generalization", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 0, "isRequired": true, "summary": "Evaluate random, stratified, clustered, convenience, and observational samples and define defensible target populations." },
+        { "title": "Sampling Distributions and Standard Error", "slug": "sampling-distributions-standard-error", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 1, "isRequired": true, "summary": "Explain how sample statistics vary and calculate or simulate standard errors." },
+        { "title": "Confidence Intervals", "slug": "confidence-intervals", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 2, "isRequired": true, "summary": "Construct and correctly interpret intervals for common means, proportions, and differences." },
+        { "title": "Hypothesis Tests for Means and Proportions", "slug": "hypothesis-tests-means-proportions", "contentType": "Mixed", "estimatedDurationMinutes": 360, "order": 3, "isRequired": true, "summary": "Form hypotheses, select tests, interpret p-values, and report effect size and practical significance." },
+        { "title": "Categorical Association and Alternatives", "slug": "categorical-association-alternatives", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 4, "isRequired": true, "summary": "Evaluate categorical association and select nonparametric alternatives when assumptions are not credible." },
+        { "title": "Power, Error Rates, and Multiple Testing", "slug": "power-error-rates-multiple-testing", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 5, "isRequired": true, "summary": "Reason about Type I and II errors, sample size, power, repeated testing, and selective reporting." },
+        { "title": "Project Brief: Evidence and Uncertainty Memo", "slug": "project-evidence-uncertainty-memo", "contentType": "Exercise", "estimatedDurationMinutes": 480, "order": 6, "isRequired": true, "summary": "Evaluate a sample-based claim with reproducible calculations, assumptions, effect size, uncertainty, and an executive interpretation." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 302 — Business Analytics, Metrics, and KPIs",
+      "slug": "da-302-business-analytics-metrics-kpis",
+      "difficulty": "Intermediate",
+      "estimatedDurationMinutes": 1680,
+      "shortDescription": "Define decision-relevant metrics and analyze business performance, funnels, cohorts, and drivers.",
+      "skills": [
+        { "skillSlug": "business-analysis", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "metrics-kpis", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "sql", "proficiencyLevel": "Advanced", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Processes, Decisions, and Requirements", "slug": "processes-decisions-requirements", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 0, "isRequired": true, "summary": "Map business processes and data-generating events and document stakeholder decisions and analytical requirements." },
+        { "title": "Metric Contracts, Targets, and Guardrails", "slug": "metric-contracts-targets-guardrails", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 1, "isRequired": true, "summary": "Write unambiguous definitions covering population, formula, grain, exclusions, timing, owner, targets, and guardrails." },
+        { "title": "Revenue, Cost, Margin, and Unit Economics", "slug": "revenue-cost-margin-unit-economics", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 2, "isRequired": true, "summary": "Calculate and reconcile core financial and per-unit operating measures without becoming a finance-specialist course." },
+        { "title": "Funnels, Cohorts, Retention, and Churn", "slug": "funnels-cohorts-retention-churn", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 3, "isRequired": true, "summary": "Define eligible populations and analyze conversion stages, cohorts, retention curves, and churn." },
+        { "title": "Operations Metrics and Driver Trees", "slug": "operations-metrics-driver-trees", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 4, "isRequired": true, "summary": "Analyze throughput, service, quality, capacity, variance, and decomposed outcome drivers." },
+        { "title": "Leading, Lagging, and Dangerous Metrics", "slug": "leading-lagging-dangerous-metrics", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 5, "isRequired": true, "summary": "Distinguish leading, lagging, diagnostic, vanity, and incentive-distorting measures." },
+        { "title": "Project Brief: Measurement Framework", "slug": "project-measurement-framework", "contentType": "Exercise", "estimatedDurationMinutes": 240, "order": 6, "isRequired": true, "summary": "Design and implement a KPI framework for a product, service, or operation using transactional data." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 303 — Regression and Experimentation",
+      "slug": "da-303-regression-experimentation",
+      "difficulty": "Advanced",
+      "estimatedDurationMinutes": 2040,
+      "shortDescription": "Model relationships and design and analyze controlled experiments without overstating causality.",
+      "skills": [
+        { "skillSlug": "experimentation", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "regression", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "inferential-statistics", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "python", "proficiencyLevel": "Intermediate", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Simple and Multiple Linear Regression", "slug": "simple-multiple-linear-regression", "contentType": "Mixed", "estimatedDurationMinutes": 360, "order": 0, "isRequired": true, "summary": "Fit and interpret regression coefficients, uncertainty, predictions, and model fit in business context." },
+        { "title": "Categories, Interactions, and Diagnostics", "slug": "categories-interactions-diagnostics", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 1, "isRequired": true, "summary": "Encode categories, interpret interactions, inspect residuals, and identify influential observations and assumption problems." },
+        { "title": "Prediction, Explanation, and Causal Limits", "slug": "prediction-explanation-causal-limits", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 2, "isRequired": true, "summary": "Distinguish analytical goals and recognize confounding, omitted variables, reverse causality, and overfitting." },
+        { "title": "Experiment Design", "slug": "experiment-design", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 3, "isRequired": true, "summary": "Define hypotheses, units, eligibility, randomization, treatment, control, exposure, primary metrics, and guardrails." },
+        { "title": "Power and A/B Test Analysis", "slug": "power-ab-test-analysis", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 4, "isRequired": true, "summary": "Plan sample size and analyze differences with effect sizes, confidence intervals, and decision thresholds." },
+        { "title": "Experiment Failure Modes", "slug": "experiment-failure-modes", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 5, "isRequired": true, "summary": "Detect peeking, multiple comparisons, sample-ratio mismatch, contamination, novelty, attrition, and instrumentation failures." },
+        { "title": "Project Brief: Experiment Recommendation", "slug": "project-experiment-recommendation", "contentType": "Exercise", "estimatedDurationMinutes": 300, "order": 6, "isRequired": true, "summary": "Analyze an experiment or carefully framed observational study and recommend launch, iteration, or further investigation." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 304 — Communicating Insights and Analytical Storytelling",
+      "slug": "da-304-communicating-insights-storytelling",
+      "difficulty": "Advanced",
+      "estimatedDurationMinutes": 1440,
+      "shortDescription": "Turn technical results into honest, audience-specific narratives, recommendations, and presentations.",
+      "skills": [
+        { "skillSlug": "analytical-communication", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "data-visualization", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "business-analysis", "proficiencyLevel": "Advanced", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Audience, Decision, and Message", "slug": "audience-decision-message", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 0, "isRequired": true, "summary": "Adapt depth, language, evidence, and format for executive, operational, and technical audiences." },
+        { "title": "Finding, Insight, Implication, and Recommendation", "slug": "finding-insight-implication-recommendation", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 1, "isRequired": true, "summary": "Separate what the data shows from interpretation, consequence, proposed action, and decision ownership." },
+        { "title": "Executive Summaries and Analytical Memos", "slug": "executive-summaries-analytical-memos", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 2, "isRequired": true, "summary": "Write concise documents organized around context, evidence, implication, action, and limitations." },
+        { "title": "Presentation and Explanatory Visual Design", "slug": "presentation-explanatory-visual-design", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 3, "isRequired": true, "summary": "Create slides, annotations, visual hierarchy, and spoken explanations that focus attention without distorting evidence." },
+        { "title": "Uncertainty, Limitations, and Objections", "slug": "uncertainty-limitations-objections", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 4, "isRequired": true, "summary": "Explain caveats clearly, answer skeptical questions, distinguish unknown from unknowable, and propose next steps." },
+        { "title": "Requirements Meetings and Feedback", "slug": "requirements-meetings-feedback", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 5, "isRequired": true, "summary": "Practice active listening, clarification, acceptance criteria, readouts, and evidence-preserving revision." },
+        { "title": "Project Brief: Three-Audience Analysis", "slug": "project-three-audience-analysis", "contentType": "Exercise", "estimatedDurationMinutes": 240, "order": 6, "isRequired": true, "summary": "Convert one analysis into an executive brief, short presentation, and technical appendix, then answer questions live or by recording." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 351 — Analytics in a Business Domain",
+      "slug": "da-351-analytics-business-domain",
+      "difficulty": "Advanced",
+      "estimatedDurationMinutes": 1440,
+      "shortDescription": "Develop contextual judgment through a focused product, marketing, operations, finance, people, public-sector, or healthcare case.",
+      "skills": [
+        { "skillSlug": "business-analysis", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "metrics-kpis", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "analytical-communication", "proficiencyLevel": "Advanced", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Select a Domain and Map Its Decisions", "slug": "select-domain-map-decisions", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 0, "isRequired": true, "summary": "Choose product, marketing, operations, finance, people, public-sector, or healthcare analytics and map its actors, processes, and decisions." },
+        { "title": "Domain Entities, Events, and Metrics", "slug": "domain-entities-events-metrics", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 1, "isRequired": true, "summary": "Define the domain vocabulary, data model, event lifecycle, key measures, comparison groups, and benchmarks." },
+        { "title": "Domain Data Risks and Constraints", "slug": "domain-data-risks-constraints", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 2, "isRequired": true, "summary": "Identify context-specific quality, privacy, compliance, equity, seasonality, and decision constraints." },
+        { "title": "Domain Case Analysis", "slug": "domain-case-analysis", "contentType": "Exercise", "estimatedDurationMinutes": 420, "order": 3, "isRequired": true, "summary": "Analyze a representative dataset using the measures and methods appropriate to the selected domain." },
+        { "title": "Stakeholder Interpretation", "slug": "domain-stakeholder-interpretation", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 4, "isRequired": true, "summary": "Explain how domain knowledge changes interpretation, limitations, recommendations, and the cost of error." },
+        { "title": "Project Brief: Domain Portfolio Case", "slug": "project-domain-portfolio-case", "contentType": "Exercise", "estimatedDurationMinutes": 240, "order": 5, "isRequired": true, "summary": "Deliver a stakeholder-ready domain analysis suitable for a specialized portfolio." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 352 — Forecasting and Time-Series Fundamentals",
+      "slug": "da-352-forecasting-time-series",
+      "difficulty": "Advanced",
+      "estimatedDurationMinutes": 1440,
+      "shortDescription": "Build and backtest practical forecasts while communicating uncertainty and operational limitations.",
+      "skills": [
+        { "skillSlug": "forecasting", "proficiencyLevel": "Intermediate", "isPrimary": true },
+        { "skillSlug": "python", "proficiencyLevel": "Intermediate", "isPrimary": false },
+        { "skillSlug": "inferential-statistics", "proficiencyLevel": "Intermediate", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Time-Series Structure and Temporal Grain", "slug": "time-series-structure-grain", "contentType": "Mixed", "estimatedDurationMinutes": 210, "order": 0, "isRequired": true, "summary": "Identify time index, frequency, aggregation, trend, seasonality, cycles, calendar effects, gaps, and irregular variation." },
+        { "title": "Visualization and Baseline Forecasts", "slug": "visualization-baseline-forecasts", "contentType": "Mixed", "estimatedDurationMinutes": 210, "order": 1, "isRequired": true, "summary": "Explore series and establish naïve, seasonal-naïve, and moving-average baselines." },
+        { "title": "Smoothing and Time-Feature Models", "slug": "smoothing-time-feature-models", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 2, "isRequired": true, "summary": "Apply exponential smoothing and simple regression with calendar and trend features." },
+        { "title": "Backtesting and Forecast Error", "slug": "backtesting-forecast-error", "contentType": "Mixed", "estimatedDurationMinutes": 240, "order": 3, "isRequired": true, "summary": "Use chronological splits and rolling validation and compare appropriate scale-dependent and percentage error metrics." },
+        { "title": "Intervals, Leakage, Scenarios, and Risk", "slug": "intervals-leakage-scenarios-risk", "contentType": "Mixed", "estimatedDurationMinutes": 210, "order": 4, "isRequired": true, "summary": "Interpret prediction intervals, prevent future-data leakage, and distinguish forecasts from scenarios and targets." },
+        { "title": "Project Brief: Backtested Business Forecast", "slug": "project-backtested-business-forecast", "contentType": "Exercise", "estimatedDurationMinutes": 270, "order": 5, "isRequired": true, "summary": "Forecast a business measure, beat or explain failure to beat simple baselines, and communicate when the result should not be trusted." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 401 — Applied Data Analyst Case Lab",
+      "slug": "da-401-applied-data-analyst-case-lab",
+      "difficulty": "Advanced",
+      "estimatedDurationMinutes": 2160,
+      "shortDescription": "Solve varied, ambiguous analyst cases under realistic constraints and revise work through review.",
+      "skills": [
+        { "skillSlug": "analytical-thinking", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "sql", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "python", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "data-quality", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "analytical-communication", "proficiencyLevel": "Advanced", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Case Intake, Scoping, and Tool Choice", "slug": "case-intake-scoping-tool-choice", "contentType": "Exercise", "estimatedDurationMinutes": 180, "order": 0, "isRequired": true, "summary": "Scope unfamiliar requests, define minimum defensible work, and choose Excel, SQL, Python, or BI based on the problem." },
+        { "title": "Spreadsheet Audit Case", "slug": "spreadsheet-audit-case", "contentType": "Exercise", "estimatedDurationMinutes": 300, "order": 1, "isRequired": true, "summary": "Find formula, data, logic, and presentation defects in a decision-critical workbook and issue a corrected version." },
+        { "title": "SQL Investigation Case", "slug": "sql-investigation-case", "contentType": "Exercise", "estimatedDurationMinutes": 360, "order": 2, "isRequired": true, "summary": "Inspect an unfamiliar schema, validate grain, answer stakeholder questions, and deliver traceable queries." },
+        { "title": "Python Cleaning and EDA Case", "slug": "python-cleaning-eda-case", "contentType": "Exercise", "estimatedDurationMinutes": 360, "order": 3, "isRequired": true, "summary": "Repair and explore imperfect multi-file data in a reproducible notebook under a defined deadline." },
+        { "title": "KPI and Dashboard Case", "slug": "kpi-dashboard-case", "contentType": "Exercise", "estimatedDurationMinutes": 360, "order": 4, "isRequired": true, "summary": "Resolve ambiguous metrics and deliver a validated decision-oriented dashboard slice." },
+        { "title": "Statistical Evidence Case", "slug": "statistical-evidence-case", "contentType": "Exercise", "estimatedDurationMinutes": 300, "order": 5, "isRequired": true, "summary": "Select and apply a proportionate inferential method and communicate uncertainty without overstating evidence." },
+        { "title": "Peer Review, Revision, and Oral Defense", "slug": "peer-review-revision-oral-defense", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 6, "isRequired": true, "summary": "Review another analysis, respond to feedback, repair defects, and defend major choices and limitations." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 402 — Data Analyst Capstone",
+      "slug": "da-402-data-analyst-capstone",
+      "difficulty": "Advanced",
+      "estimatedDurationMinutes": 3000,
+      "shortDescription": "Complete and defend an independent, reproducible, end-to-end analysis using raw or minimally prepared data.",
+      "skills": [
+        { "skillSlug": "analytical-thinking", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "data-cleaning", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "sql", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "python", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "data-visualization", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "analytical-communication", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "git-github", "proficiencyLevel": "Intermediate", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Proposal, Stakeholder, and Analysis Plan", "slug": "capstone-proposal-analysis-plan", "contentType": "Exercise", "estimatedDurationMinutes": 300, "order": 0, "isRequired": true, "summary": "Select a decision-oriented problem and define stakeholder, questions, scope, measures, success criteria, milestones, and deliverables." },
+        { "title": "Source, Ethics, Privacy, and Quality Review", "slug": "capstone-source-risk-review", "contentType": "Exercise", "estimatedDurationMinutes": 360, "order": 1, "isRequired": true, "summary": "Document provenance, licenses, population, grain, access, fitness for use, bias, privacy, limitations, and a mitigation plan." },
+        { "title": "Acquisition, Cleaning, Integration, and Validation", "slug": "capstone-data-preparation", "contentType": "Exercise", "estimatedDurationMinutes": 600, "order": 2, "isRequired": true, "summary": "Use SQL and Python where appropriate to produce analysis-ready data with transformations, assertions, reconciliation, and a data dictionary." },
+        { "title": "Exploratory and Statistical Analysis", "slug": "capstone-analysis", "contentType": "Exercise", "estimatedDurationMinutes": 600, "order": 3, "isRequired": true, "summary": "Explore the evidence and apply descriptive and inferential methods proportionate to the question." },
+        { "title": "Dashboard or Explanatory Visual Product", "slug": "capstone-analytical-product", "contentType": "Exercise", "estimatedDurationMinutes": 420, "order": 4, "isRequired": true, "summary": "Build a validated dashboard or polished visual report aligned to the stakeholder's recurring or one-time decision." },
+        { "title": "Reproducibility and Independent Review", "slug": "capstone-reproducibility-review", "contentType": "Exercise", "estimatedDurationMinutes": 240, "order": 5, "isRequired": true, "summary": "Package code, queries, data instructions, dependencies, outputs, and decision logs so another analyst can review the work." },
+        { "title": "Report, Executive Summary, and Recommendation", "slug": "capstone-report-recommendation", "contentType": "Exercise", "estimatedDurationMinutes": 240, "order": 6, "isRequired": true, "summary": "Write evidence, implications, recommended action, uncertainty, assumptions, limitations, and proposed follow-up." },
+        { "title": "Final Presentation, Defense, and Revision", "slug": "capstone-presentation-defense", "contentType": "Exercise", "estimatedDurationMinutes": 240, "order": 7, "isRequired": true, "summary": "Present to a mixed audience, answer challenges, document feedback, and publish a corrected final version." }
+      ],
+      "externalResources": []
+    },
+    {
+      "title": "DA 403 — Portfolio, Interviews, and Career Practice",
+      "slug": "da-403-portfolio-interviews-career-practice",
+      "difficulty": "Advanced",
+      "estimatedDurationMinutes": 1440,
+      "shortDescription": "Publish credible evidence of analyst ability and prepare for practical, technical, and stakeholder interviews.",
+      "skills": [
+        { "skillSlug": "portfolio-development", "proficiencyLevel": "Advanced", "isPrimary": true },
+        { "skillSlug": "interview-preparation", "proficiencyLevel": "Advanced", "isPrimary": false },
+        { "skillSlug": "git-github", "proficiencyLevel": "Intermediate", "isPrimary": false },
+        { "skillSlug": "analytical-communication", "proficiencyLevel": "Advanced", "isPrimary": false }
+      ],
+      "lessons": [
+        { "title": "Credible Portfolio Evidence", "slug": "credible-portfolio-evidence", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 0, "isRequired": true, "summary": "Select complementary work that demonstrates question framing, SQL, cleaning, statistics, visualization, and communication." },
+        { "title": "Case Studies and Repository Presentation", "slug": "case-studies-repository-presentation", "contentType": "Mixed", "estimatedDurationMinutes": 300, "order": 1, "isRequired": true, "summary": "Write decision-centered project summaries and publish readable repositories, notebooks, dashboards, methods, and results." },
+        { "title": "Publication Safety and Professional Materials", "slug": "publication-safety-professional-materials", "contentType": "Mixed", "estimatedDurationMinutes": 180, "order": 2, "isRequired": true, "summary": "Remove sensitive data, document licenses and attribution, and build a role-aligned resume and professional profile." },
+        { "title": "SQL, Spreadsheet, and Statistics Interviews", "slug": "sql-spreadsheet-statistics-interviews", "contentType": "Exercise", "estimatedDurationMinutes": 240, "order": 3, "isRequired": true, "summary": "Practice query, workbook, probability, inference, and interpretation tasks while explaining reasoning aloud." },
+        { "title": "Metrics, Dashboard, and Business Cases", "slug": "metrics-dashboard-business-cases", "contentType": "Exercise", "estimatedDurationMinutes": 240, "order": 4, "isRequired": true, "summary": "Define metrics, critique analytical products, scope ambiguous cases, and recommend evidence-based actions." },
+        { "title": "Project Presentation and Behavioral Interview", "slug": "project-presentation-behavioral-interview", "contentType": "Exercise", "estimatedDurationMinutes": 180, "order": 5, "isRequired": true, "summary": "Explain contributions, choices, errors, feedback, conflict, limitations, and outcomes using concise examples." },
+        { "title": "Project Brief: Career-Ready Portfolio", "slug": "project-career-ready-portfolio", "contentType": "Exercise", "estimatedDurationMinutes": 120, "order": 6, "isRequired": true, "summary": "Publish at least three polished analytical artifacts, complete a mock interview, and create a targeted application and skill-gap plan." }
+      ],
+      "externalResources": []
+    }
+  ],
+  "pathway": {
+    "name": "Data Analyst Career Pathway",
+    "version": "1.0.0",
+    "isPrimary": true,
+    "description": "A job-focused pathway from data literacy through independent analysis, dashboards, statistical reasoning, stakeholder communication, and portfolio evidence. Advanced machine learning and data engineering are intentionally outside the core.",
+    "levels": [
+      {
+        "name": "100 Level — Foundations",
+        "order": 0,
+        "description": "Build data literacy, spreadsheet fluency, quantitative foundations, and responsible data-handling habits.",
+        "courses": [
+          { "courseSlug": "da-101-data-analytics-analytical-thinking", "order": 0, "isRequired": true },
+          { "courseSlug": "da-102-spreadsheet-analysis-excel", "order": 1, "isRequired": true },
+          { "courseSlug": "da-103-statistics-probability-foundations", "order": 2, "isRequired": true },
+          { "courseSlug": "da-104-data-quality-ethics-privacy", "order": 3, "isRequired": true }
+        ]
+      },
+      {
+        "name": "200 Level — Core Analyst Skills",
+        "order": 1,
+        "description": "Develop the junior analyst toolkit: SQL, relational data, cleaning, Python, exploration, visualization, and BI dashboards.",
+        "courses": [
+          { "courseSlug": "da-201-sql-relational-data-analysis", "order": 0, "isRequired": true },
+          { "courseSlug": "da-202-data-cleaning-wrangling", "order": 1, "isRequired": true },
+          { "courseSlug": "da-203-python-data-analysis", "order": 2, "isRequired": true },
+          { "courseSlug": "da-204-exploratory-analysis-visualization", "order": 3, "isRequired": true },
+          { "courseSlug": "da-205-business-intelligence-dashboard-design", "order": 4, "isRequired": true }
+        ]
+      },
+      {
+        "name": "300 Level — Professional Data Analysis",
+        "order": 2,
+        "description": "Apply statistical inference, business metrics, experiments, regression, and stakeholder communication, with optional domain depth.",
+        "courses": [
+          { "courseSlug": "da-301-applied-statistical-inference", "order": 0, "isRequired": true },
+          { "courseSlug": "da-302-business-analytics-metrics-kpis", "order": 1, "isRequired": true },
+          { "courseSlug": "da-303-regression-experimentation", "order": 2, "isRequired": true },
+          { "courseSlug": "da-304-communicating-insights-storytelling", "order": 3, "isRequired": true },
+          { "courseSlug": "da-351-analytics-business-domain", "order": 4, "isRequired": false },
+          { "courseSlug": "da-352-forecasting-time-series", "order": 5, "isRequired": false }
+        ]
+      },
+      {
+        "name": "400 Level — Career Ready",
+        "order": 3,
+        "description": "Demonstrate independent end-to-end analysis through realistic cases, a signature capstone, a portfolio, and interview practice.",
+        "courses": [
+          { "courseSlug": "da-401-applied-data-analyst-case-lab", "order": 0, "isRequired": true },
+          { "courseSlug": "da-402-data-analyst-capstone", "order": 1, "isRequired": true },
+          { "courseSlug": "da-403-portfolio-interviews-career-practice", "order": 2, "isRequired": true }
+        ]
+      }
+    ]
+  },
+  "mode": "CreateOnly"
+}
