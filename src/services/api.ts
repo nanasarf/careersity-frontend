@@ -107,6 +107,12 @@ const baseQueryWithReauth: BaseQueryFn<
   }
 
   if (result.error) result.error = normalizeApiError(result.error)
+  else if (api.type === 'mutation') {
+    // Admin curriculum relationships cross aggregate boundaries (for example a
+    // Course lesson can change one or more Careers). Invalidate active backend
+    // readiness queries after successful mutations rather than guessing Career IDs.
+    api.dispatch(baseApi.util.invalidateTags(['CareerReadiness']))
+  }
   return result
 }
 
@@ -115,6 +121,7 @@ export const baseApi = createApi({
   baseQuery: baseQueryWithReauth,
   tagTypes: [
     'Career',
+    'CareerReadiness',
     'CareerCategory',
     'Course',
     'Skill',

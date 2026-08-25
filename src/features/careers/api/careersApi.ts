@@ -62,6 +62,7 @@ export const {
   useGetCareerCategoriesQuery,
   useGetCareersQuery,
   useGetCareerBySlugQuery,
+  useLazyGetCareerBySlugQuery,
   useGetCareerPathwayQuery,
   useGetSkillsQuery,
   useGetSkillBySlugQuery,

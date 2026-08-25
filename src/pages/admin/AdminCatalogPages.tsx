@@ -18,9 +18,10 @@ import type { ContentStatus } from "../../types/api";
 import { CourseAuthoring } from "../../features/admin/components/CourseAuthoring";
 import { CareerAuthoring } from "../../features/admin/components/CareerAuthoring";
 import { AssessmentAuthoring } from "../../features/admin/components/AssessmentAuthoring";
-import { useAdminChangeCareerCategoryMutation } from "../../features/admin/api/adminCareersApi";
+import { useAdminChangeCareerCategoryMutation, useAdminGetCareerReadinessQuery } from "../../features/admin/api/adminCareersApi";
 import { FieldError } from "../../features/admin/components/AdminAuthoring";
 import { problemFrom, useDebounced } from "../../features/admin/components/adminAuthoringUtils";
+import { useLazyGetCareerBySlugQuery } from "../../features/careers/api/careersApi";
 
 type Field = {
   name: string;
@@ -293,9 +294,8 @@ function RelationshipField({ field, initial, disabled, error, onEdit }: { field:
       {!!initial && !query.data?.items.some(row => row.id === initial) && <option value={String(initial)}>Current selection</option>}
       {query.data?.items.map(row => <option key={row.id} value={row.id}>{label(row)}{row.providerName ? ` — ${row.providerName}` : ""}</option>)}
     </select>
-    {!query.isFetching && query.data?.items.length === 0 && <p className="mt-1 text-xs text-gray-600">No matching choices.</p>}
+    {!query.isFetching && query.data?.items.length === 0 && <div className="mt-2 rounded-lg bg-amber-50 p-3 text-sm"><p className="font-medium">{search ? "No matching choices." : `No ${resource === "career-categories" ? "categories" : resource} exist yet.`}</p><Link to={`/admin/${resource}/new`} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block font-semibold text-blue-700">Create {resource === "career-categories" ? "Category" : resource === "providers" ? "Provider" : resource === "courses" ? "Course" : resource === "skills" ? "Skill" : "Required item"} in a new tab ↗</Link><p className="mt-1 text-xs text-gray-600">Your current form stays open; return here and search after creation.</p></div>}
     {!!query.data && query.data.totalCount > query.data.pageSize && <div className="mt-2 flex items-center gap-2 text-xs"><button type="button" disabled={page === 1 || query.isFetching} onClick={() => setPage(value => value - 1)} className="rounded border px-2 py-1 disabled:opacity-40">Previous choices</button><span>Page {page}</span><button type="button" disabled={page * query.data.pageSize >= query.data.totalCount || query.isFetching} onClick={() => setPage(value => value + 1)} className="rounded border px-2 py-1 disabled:opacity-40">More choices</button></div>}
-    {field.name === "careerCategoryId" && <p className="mt-2 text-xs"><Link to="/admin/career-categories/new" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700">Create career category in a new tab ↗</Link><span className="ml-2 text-gray-600">Then search here to select it.</span></p>}
     {!!query.error && <p className="mt-1 text-xs text-red-700">Could not load choices.</p>}
     <FieldError error={error} field={field.name}/>
   </>;
@@ -309,12 +309,17 @@ function Editor({ resource, id }: { resource: string; id?: string }) {
     { resource, id: id! },
     { skip: !id },
   );
+  const careerReadiness = useAdminGetCareerReadinessQuery(id ?? "", {
+    skip: resource !== "careers" || !id,
+  });
   const [create, createState] = useAdminCreateCatalogItemMutation(),
     [update, updateState] = useAdminUpdateCatalogItemMutation();
   const [changeCareerCategory, categoryState] = useAdminChangeCareerCategoryMutation();
   const [changeStatus, statusState] = useAdminCatalogStatusMutation();
+  const [verifyPublicCareer] = useLazyGetCareerBySlugQuery();
   const [saveError, setSaveError] = useState<unknown>();
-  const lifecycle = async (action: "publish" | "archive" | "mark-reviewed") => { if (!id || !confirm(action === "publish" ? "Publish this content now? Dependencies must already be published." : action === "archive" ? "Archive this content? It may remain visible in learner history." : "Mark this external resource as reviewed?")) return; setSaveError(undefined); try { await changeStatus({ resource, id, action }).unwrap(); await refetch() } catch (caught) { setSaveError(caught) } };
+  const [publicVerificationWarning, setPublicVerificationWarning] = useState<unknown>();
+  const lifecycle = async (action: "publish" | "archive" | "mark-reviewed") => { const title=String(data?.title??data?.name??"this content"); const publishLabel=resource==="careers"?"Career":resource==="courses"?"Course":"Content"; if (!id) return; if (action === "publish" && resource === "careers" && !careerReadiness.data?.isReady) { document.getElementById("career-readiness")?.scrollIntoView({ behavior: "smooth", block: "start" }); return; } if (!confirm(action === "publish" ? `Review & Publish ${publishLabel}\n\n${title}\nCurrent status: ${String(data?.status)}\n\nThe backend will validate all dependencies. Publishing can make this visible to learners. Continue?` : action === "archive" ? `Archive ${title}? This may break curriculum dependencies, prevent publication, or affect learner history.` : "Mark this external resource as reviewed?")) return; setSaveError(undefined); setPublicVerificationWarning(undefined); try { await changeStatus({ resource, id, action }).unwrap(); await refetch(); if (resource === "careers") { await careerReadiness.refetch(); if (action === "publish" && typeof data?.slug === "string") { try { await verifyPublicCareer(data.slug, false).unwrap() } catch (verificationError) { setPublicVerificationWarning(verificationError) } } } } catch (caught) { setSaveError(caught) } };
   if (id && isLoading)
     return <div className="h-40 animate-pulse rounded-xl bg-gray-200" />;
   if (id && !data) return <ApiErrorNotice error={error} />;
@@ -347,7 +352,7 @@ function Editor({ resource, id }: { resource: string; id?: string }) {
         const created = await create({ resource, body }).unwrap();
         const returnTo = contextParams.get("returnTo");
         navigate(returnTo || ((resource === "careers" || resource === "courses")
-          ? `/admin/${resource}/${created.id}`
+          ? `/admin/${resource}/${created.id}${resource === "careers" ? "?created=1" : ""}`
           : `/admin/${resource}`));
         return;
       }
@@ -363,9 +368,12 @@ function Editor({ resource, id }: { resource: string; id?: string }) {
         ← {contextParams.get("returnTo") ? "Back to curriculum" : schema.title}
       </Link>
       <h1 className="mt-3 text-3xl font-bold">
-        {id ? "Edit" : "Create"} {schema.title.replace(/s$/, "")}
+        {id && resource === "careers" ? "Career Curriculum Workspace" : `${id ? "Edit" : "Create"} ${schema.title.replace(/s$/, "")}`}
       </h1>
-      {id && data && <div className="mt-4 flex flex-wrap items-center gap-3"><Status value={data.status}/>{resource === "external-resources" && data.status !== "Archived" && <button type="button" disabled={statusState.isLoading} onClick={() => void lifecycle("mark-reviewed")} className="rounded border border-violet-600 px-4 py-2 font-semibold text-violet-700 disabled:opacity-50">Mark reviewed</button>}{data.status === "Draft" && <button type="button" disabled={statusState.isLoading} onClick={() => void lifecycle("publish")} className="rounded bg-emerald-700 px-4 py-2 font-semibold text-white disabled:opacity-50">Publish</button>}{data.status !== "Archived" && <button type="button" disabled={statusState.isLoading} onClick={() => void lifecycle("archive")} className="rounded border border-red-600 px-4 py-2 font-semibold text-red-700 disabled:opacity-50">Archive</button>}{data.status === "Published" && typeof data.slug === "string" && (resource === "careers" || resource === "courses") && <Link to={`/${resource}/${data.slug}`} target="_blank" rel="noopener noreferrer" className="rounded border border-blue-600 px-4 py-2 font-semibold text-blue-700">View public page ↗</Link>}<span className="text-sm text-gray-600">Publish dependencies first; backend validation remains authoritative.</span></div>}
+      {resource === "careers" && contextParams.get("created") === "1" && <div className="mt-4 rounded-lg border border-emerald-300 bg-emerald-50 p-4"><p className="font-bold text-emerald-900">Career created as Draft. Complete the curriculum before publication.</p><p className="mt-1 text-sm">Your record is safe. Continue with Career Skills, then create the Primary Pathway.</p></div>}
+      {id && data && resource === "careers" && <div className="mt-4 rounded-xl border bg-white p-5"><div className="flex flex-wrap items-start gap-3"><div className="mr-auto"><h2 className="text-2xl font-bold">{String(data.title)}</h2><p className="mt-1 text-sm text-gray-600">Category: {String((data.careerCategory as Record<string,unknown> | undefined)?.name??data.categoryName??'—')}</p></div><Status value={data.status}/>{data.status === "Draft" && <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-900">Curriculum Incomplete</span>}</div>{Boolean(data.createdAtUtc||data.updatedAtUtc)&&<p className="mt-3 text-xs text-gray-500">Created {data.createdAtUtc?new Date(String(data.createdAtUtc)).toLocaleString():'—'} · Last updated {data.updatedAtUtc?new Date(String(data.updatedAtUtc)).toLocaleString():'—'}</p>}</div>}
+      {id && data && <div className="mt-4 flex flex-wrap items-center gap-3"><Status value={data.status}/>{resource === "external-resources" && data.status !== "Archived" && <button type="button" disabled={statusState.isLoading} onClick={() => void lifecycle("mark-reviewed")} className="rounded border border-violet-600 px-4 py-2 font-semibold text-violet-700 disabled:opacity-50">Mark reviewed</button>}{data.status === "Draft" && <button type="button" disabled={statusState.isLoading} onClick={() => void lifecycle("publish")} className="rounded bg-emerald-700 px-4 py-2 font-semibold text-white disabled:opacity-50">{statusState.isLoading?"Publishing…":resource==="careers"?"Review & Publish Career":resource==="courses"?"Review & Publish Course":"Review & Publish"}</button>}{data.status !== "Archived" && <button type="button" disabled={statusState.isLoading} onClick={() => void lifecycle("archive")} className="rounded border border-red-600 px-4 py-2 font-semibold text-red-700 disabled:opacity-50">Archive</button>}{data.status === "Published" && typeof data.slug === "string" && (resource === "careers" || resource === "courses") && <Link to={`/${resource}/${data.slug}`} target="_blank" rel="noopener noreferrer" className="rounded border border-blue-600 px-4 py-2 font-semibold text-blue-700">{resource==="careers"?"View Public Career ↗":"View public page ↗"}</Link>}<span className="text-sm text-gray-600">The backend remains authoritative for publication dependencies.</span></div>}
+      {Boolean(publicVerificationWarning) && <div className="mt-4 rounded-lg border border-amber-300 bg-amber-50 p-4"><p className="font-semibold">Career publication succeeded, but public verification failed.</p><p className="mt-1 text-sm">The public Career was checked once and was not retried automatically.</p><ApiErrorNotice error={publicVerificationWarning}/></div>}
       {data?.status && data.status !== "Draft" && (
         <p className="mt-4 rounded-lg bg-gray-100 p-4 text-sm">
           {data.status} content is read-only. Create and relationship editing is available only while content is Draft.
@@ -454,7 +462,7 @@ function Editor({ resource, id }: { resource: string; id?: string }) {
         </button>
       </form>
       {id && data && resource === "courses" && <CourseAuthoring courseId={id} status={data.status} />}
-      {id && data && resource === "careers" && <CareerAuthoring careerId={id} status={data.status} />}
+      {id && data && resource === "careers" && <CareerAuthoring careerId={id} status={String(data.status)} categoryStatus={String((data.careerCategory as Record<string,unknown> | undefined)?.status??'')} />}
       {id && data && resource === "assessments" && <AssessmentAuthoring assessmentId={id} status={data.status} />}
     </div>
   );
@@ -610,7 +618,7 @@ export default function AdminCatalogPages() {
                       >
                         {row.status === "Archived" ? "View" : "Edit"}
                       </Link>
-                      {row.status === "Draft" && (
+                      {row.status === "Draft" && resource !== "careers" && (
                         <button
                           disabled={actState.isLoading}
                           onClick={() => void action(row, "publish")}

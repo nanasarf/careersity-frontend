@@ -212,6 +212,22 @@ export interface CareerDetailDto {
   updatedAtUtc: UtcDateTime | null
 }
 
+export interface CareerReadinessCheckDto {
+  code: string
+  label: string
+  passed: boolean
+  blocking: boolean
+  message?: string | null
+  entityId?: string | null
+  entityType?: string | null
+}
+
+export interface CareerReadinessDto {
+  careerId: string
+  isReady: boolean
+  checks: CareerReadinessCheckDto[]
+}
+
 // ─── Skill DTOs ───────────────────────────────────────────────────────────────
 export interface SkillListItemDto {
   id: UUID

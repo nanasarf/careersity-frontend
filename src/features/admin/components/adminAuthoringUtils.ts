@@ -1,5 +1,19 @@
 import { useEffect, useState } from 'react'
-import type { ApiProblem } from '../../../types/api'
+import type { ApiProblem, CareerPathwayDto } from '../../../types/api'
+
+export type CareerAuthoringProgress = {
+  hasSkills: boolean
+  hasPathway: boolean
+  hasLevels: boolean
+  everyLevelHasCourse: boolean
+  hasRequiredCourses: boolean
+}
+
+export function deriveCareerAuthoringProgress(skillCount: number, pathway: CareerPathwayDto | undefined): CareerAuthoringProgress {
+  const levels = pathway?.levels ?? []
+  const assignments = levels.flatMap(level => level.courses)
+  return { hasSkills: skillCount > 0, hasPathway: !!pathway, hasLevels: levels.length > 0, everyLevelHasCourse: levels.length > 0 && levels.every(level => level.courses.length > 0), hasRequiredCourses: assignments.some(course => course.isRequired) }
+}
 
 export function problemFrom(error: unknown): ApiProblem | undefined {
   if (!error || typeof error !== 'object' || !('data' in error)) return undefined

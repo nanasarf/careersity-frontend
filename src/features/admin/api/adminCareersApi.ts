@@ -5,6 +5,7 @@ import type {
   CareerDetailDto,
   CareerListItemDto,
   CareerPathwayDto,
+  CareerReadinessDto,
   CareerSkillDto,
   ChangeCareerCategoryRequest,
   ContentStatus,
@@ -98,6 +99,11 @@ export const adminCareersApi = baseApi.injectEndpoints({
       providesTags: (_r, _e, id) => [{ type: 'Career', id }],
     }),
 
+    adminGetCareerReadiness: builder.query<CareerReadinessDto, string>({
+      query: (careerId) => `/api/admin/careers/${careerId}/readiness`,
+      providesTags: (_r, _e, careerId) => [{ type: 'CareerReadiness', id: careerId }, 'CareerCategory', 'Skill', 'Course'],
+    }),
+
     adminCreateCareer: builder.mutation<CareerDetailDto, CreateCareerRequest>({
       query: (body) => ({ url: '/api/admin/careers', method: 'POST', body }),
       invalidatesTags: ['Career'],
@@ -112,7 +118,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: (_r, _e, { id }) => [{ type: 'Career', id }, 'Career'],
+      invalidatesTags: (_r, _e, { id }) => [{ type: 'Career', id }, 'Career', { type: 'CareerReadiness', id }],
     }),
 
     adminChangeCareerCategory: builder.mutation<
@@ -124,12 +130,12 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: (_r, _e, { id }) => [{ type: 'Career', id }],
+      invalidatesTags: (_r, _e, { id }) => [{ type: 'Career', id }, { type: 'CareerReadiness', id }],
     }),
 
     adminPublishCareer: builder.mutation<void, string>({
       query: (id) => ({ url: `/api/admin/careers/${id}/publish`, method: 'POST' }),
-      invalidatesTags: (_r, _e, id) => [{ type: 'Career', id }, 'Career'],
+      invalidatesTags: (_r, _e, id) => [{ type: 'Career', id }, 'Career', { type: 'CareerReadiness', id }],
     }),
 
     adminArchiveCareer: builder.mutation<void, string>({
@@ -152,7 +158,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'POST',
         body,
       }),
-      invalidatesTags: (_r, _e, { careerId }) => [{ type: 'Career', id: careerId }, { type: 'Career', id: `skills-${careerId}` }],
+      invalidatesTags: (_r, _e, { careerId }) => [{ type: 'Career', id: careerId }, { type: 'Career', id: `skills-${careerId}` }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminUpdateCareerSkill: builder.mutation<
@@ -164,7 +170,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: (_r, _e, { careerId }) => [{ type: 'Career', id: careerId }, { type: 'Career', id: `skills-${careerId}` }],
+      invalidatesTags: (_r, _e, { careerId }) => [{ type: 'Career', id: careerId }, { type: 'Career', id: `skills-${careerId}` }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminDeleteCareerSkill: builder.mutation<
@@ -175,7 +181,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         url: `/api/admin/careers/${careerId}/skills/${careerSkillId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (_r, _e, { careerId }) => [{ type: 'Career', id: careerId }, { type: 'Career', id: `skills-${careerId}` }],
+      invalidatesTags: (_r, _e, { careerId }) => [{ type: 'Career', id: careerId }, { type: 'Career', id: `skills-${careerId}` }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     // ── Career pathways ──────────────────────────────────────────────────────
@@ -202,7 +208,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'POST',
         body: { careerId, ...body },
       }),
-      invalidatesTags: ['Pathway'],
+      invalidatesTags: (_r, _e, { careerId }) => ['Pathway', { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminUpdateCareerPathway: builder.mutation<
@@ -214,7 +220,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminPublishCareerPathway: builder.mutation<
@@ -225,7 +231,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         url: `/api/admin/careers/${careerId}/pathways/${pathwayId}/publish`,
         method: 'POST',
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminArchiveCareerPathway: builder.mutation<
@@ -236,7 +242,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         url: `/api/admin/careers/${careerId}/pathways/${pathwayId}/archive`,
         method: 'POST',
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     // ── Pathway levels ───────────────────────────────────────────────────────
@@ -249,7 +255,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'POST',
         body,
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminUpdatePathwayLevel: builder.mutation<
@@ -261,7 +267,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminDeletePathwayLevel: builder.mutation<
@@ -272,7 +278,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         url: `/api/admin/careers/${careerId}/pathways/${pathwayId}/levels/${levelId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminReorderPathwayLevels: builder.mutation<
@@ -284,7 +290,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     // ── Pathway level courses ────────────────────────────────────────────────
@@ -297,7 +303,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'POST',
         body,
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminUpdatePathwayLevelCourse: builder.mutation<
@@ -314,7 +320,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminDeletePathwayLevelCourse: builder.mutation<
@@ -325,7 +331,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         url: `/api/admin/careers/${careerId}/pathways/${pathwayId}/levels/${levelId}/courses/${assignmentId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
 
     adminReorderPathwayLevelCourses: builder.mutation<
@@ -341,7 +347,7 @@ export const adminCareersApi = baseApi.injectEndpoints({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: (_r, _e, { pathwayId }) => [{ type: 'Pathway', id: pathwayId }],
+      invalidatesTags: (_r, _e, { careerId, pathwayId }) => [{ type: 'Pathway', id: pathwayId }, { type: 'Career', id: careerId }, { type: 'CareerReadiness', id: careerId }],
     }),
   }),
 })
@@ -355,6 +361,7 @@ export const {
   useAdminArchiveCareerCategoryMutation,
   useAdminGetCareersQuery,
   useAdminGetCareerQuery,
+  useAdminGetCareerReadinessQuery,
   useAdminCreateCareerMutation,
   useAdminUpdateCareerMutation,
   useAdminChangeCareerCategoryMutation,

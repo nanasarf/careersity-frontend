@@ -18,13 +18,13 @@ export const adminCrudApi = baseApi.injectEndpoints({ endpoints: builder => ({
   }),
   adminCatalogItem: builder.query<AdminRow, { resource: string; id: string }>({ query: ({ resource, id }) => `/api/admin/${paths[resource]}/${id}`, providesTags: (_r, _e, { resource, id }) => [{ type: tagFor(resource), id }] }),
   adminCreateCatalogItem: builder.mutation<AdminRow, { resource: string; body: Record<string, unknown> }>({
-    query: ({ resource, body }) => ({ url: `/api/admin/${paths[resource]}`, method: 'POST', body }), invalidatesTags: ['Skill','Course','Career','CareerCategory','Provider','Instructor','ExternalResource','Assessment','Project'],
+    query: ({ resource, body }) => ({ url: `/api/admin/${paths[resource]}`, method: 'POST', body }), invalidatesTags: ['Skill','Course','Career','CareerReadiness','CareerCategory','Pathway','Provider','Instructor','ExternalResource','Assessment','Project'],
   }),
   adminUpdateCatalogItem: builder.mutation<AdminRow, { resource: string; id: string; body: Record<string, unknown> }>({
-    query: ({ resource, id, body }) => ({ url: `/api/admin/${paths[resource]}/${id}`, method: 'PUT', body }), invalidatesTags: ['Skill','Course','Career','CareerCategory','Provider','Instructor','ExternalResource','Assessment','Project'],
+    query: ({ resource, id, body }) => ({ url: `/api/admin/${paths[resource]}/${id}`, method: 'PUT', body }), invalidatesTags: ['Skill','Course','Career','CareerReadiness','CareerCategory','Pathway','Provider','Instructor','ExternalResource','Assessment','Project'],
   }),
   adminCatalogStatus: builder.mutation<void, { resource: string; id: string; action: 'publish' | 'archive' | 'mark-reviewed' }>({
-    query: ({ resource, id, action }) => ({ url: `/api/admin/${paths[resource]}/${id}/${action}`, method: 'POST' }), invalidatesTags: ['Skill','Course','Career','CareerCategory','Provider','Instructor','ExternalResource','Assessment','Project'],
+    query: ({ resource, id, action }) => ({ url: `/api/admin/${paths[resource]}/${id}/${action}`, method: 'POST' }), invalidatesTags: ['Skill','Course','Career','CareerReadiness','CareerCategory','Pathway','Provider','Instructor','ExternalResource','Assessment','Project'],
   }),
 }) })
 
