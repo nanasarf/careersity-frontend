@@ -23,11 +23,15 @@ export default function CareerCatalogPage() {
   const totalPages = data ? Math.ceil(data.totalCount / data.pageSize) : 0;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10">
-      <h1 className="mb-6 text-3xl font-bold text-gray-900">Browse Careers</h1>
+    <div className="catalog-page mx-auto max-w-7xl px-4 py-10">
+      <header className="page-intro">
+        <p className="eyebrow">The Careersity prospectus</p>
+        <h1 className="text-3xl font-bold text-gray-900">Find your field of study</h1>
+        <p>Explore career curricula built around practical skills, progressive coursework, and a clear destination.</p>
+      </header>
 
       {/* Filters */}
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row">
+      <div className="filter-panel mb-8 flex flex-col gap-4 sm:flex-row">
         <input
           type="search"
           value={search}
@@ -92,7 +96,7 @@ export default function CareerCatalogPage() {
             <Link
               key={career.id}
               to={`/careers/${career.slug}`}
-              className="rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+              className="career-card rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
             >
               <p className="mb-1 text-xs font-medium uppercase tracking-wide text-blue-600">
                 {career.categoryName}
@@ -108,6 +112,7 @@ export default function CareerCatalogPage() {
                   ~{career.estimatedDurationWeeks} weeks
                 </p>
               )}
+              <span className="card-arrow" aria-hidden="true">Explore pathway →</span>
             </Link>
           ))}
         </div>

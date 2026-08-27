@@ -69,7 +69,7 @@ export default function CareerDetailsPage() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-10">
+    <div className="career-detail mx-auto max-w-4xl px-4 py-10">
       {/* Breadcrumb */}
       <nav className="mb-4 text-sm text-gray-500">
         <Link to="/careers" className="hover:text-blue-600">
@@ -79,7 +79,7 @@ export default function CareerDetailsPage() {
       </nav>
 
       {/* Header */}
-      <div className="mb-8">
+      <div className="career-hero mb-8">
         <p className="mb-1 text-sm font-medium uppercase tracking-wide text-blue-600">
           {career.careerCategory.name}
         </p>
@@ -127,7 +127,7 @@ export default function CareerDetailsPage() {
 
       {/* Description */}
       {career.detailedDescription && (
-        <section className="mb-8">
+        <section className="editorial-section mb-8">
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             About this career
           </h2>
@@ -139,7 +139,7 @@ export default function CareerDetailsPage() {
 
       {/* Skills */}
       {career.skills.length > 0 && (
-        <section className="mb-8">
+        <section className="editorial-section mb-8">
           <h2 className="mb-3 text-2xl font-semibold text-gray-900">
             Skills you will build
           </h2>
@@ -158,7 +158,7 @@ export default function CareerDetailsPage() {
 
       {/* Pathway overview */}
       {career.primaryPathway && career.primaryPathway.levels.length > 0 && (
-        <section className="mb-8">
+        <section className="pathway-section mb-8">
           <h2 className="mb-4 text-2xl font-semibold text-gray-900">
             Learning pathway
           </h2>
@@ -167,7 +167,7 @@ export default function CareerDetailsPage() {
               .slice()
               .sort((a, b) => a.order - b.order)
               .map((level) => (
-                <div key={level.id} className="rounded-lg border bg-white p-5">
+                <div key={level.id} className="pathway-level rounded-lg border bg-white p-5">
                   <h3 className="font-semibold text-gray-900">
                     Level {level.order}: {level.name}
                   </h3>

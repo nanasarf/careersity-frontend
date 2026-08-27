@@ -54,7 +54,7 @@ export default function LearnerLayout() {
       </header>
 
       <main className="learner-canvas flex-1">
-        <div className="mx-auto max-w-7xl px-4 py-8">
+        <div className="learner-workspace mx-auto max-w-7xl px-4 py-8">
           <Outlet />
         </div>
       </main>
